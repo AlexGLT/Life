@@ -6,11 +6,11 @@ private:
 	SDL_Window* window;
 	SDL_Surface* screenSurface;
 
-	//змінні, які відповідають за ширину і висоту вікна
+	//Р·РјС–РЅРЅС–, СЏРєС– РІС–РґРїРѕРІС–РґР°СЋС‚СЊ Р·Р° С€РёСЂРёРЅСѓ С– РІРёСЃРѕС‚Сѓ РІС–РєРЅР°
 	int width, height;
 
 public:
-	//конструктор
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	Application(int width, int height, SDL_Window* window, SDL_Surface* screenSurface)
 	{
 		window = SDL_CreateWindow("Life", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
@@ -21,8 +21,7 @@ public:
 
 		SDL_UpdateWindowSurface(window);
 	}
-
-	//функція завершення роботи
+	//С„СѓРЅРєС†С–СЏ Р·Р°РІРµСЂС€РµРЅРЅСЏ СЂРѕР±РѕС‚Рё
 	void finish()
 	{
 		SDL_DestroyWindow(window);
