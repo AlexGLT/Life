@@ -3,11 +3,15 @@
 class Application
 {
 private:
-	SDL_Window* window = NULL;
-	SDL_Surface* screenSurface = NULL;
+	SDL_Window* window;
+	SDL_Surface* screenSurface;
+
+	//змінні, які відповідають за ширину і висоту вікна
+	int width, height;
 
 public:
-	void start(int width, int height)
+	//конструктор
+	Application(int width, int height, SDL_Window* window, SDL_Surface* screenSurface)
 	{
 		window = SDL_CreateWindow("Life", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
 
@@ -18,6 +22,7 @@ public:
 		SDL_UpdateWindowSurface(window);
 	}
 
+	//функція завершення роботи
 	void finish()
 	{
 		SDL_DestroyWindow(window);

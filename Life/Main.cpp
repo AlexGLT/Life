@@ -4,9 +4,7 @@
 
 int main(int argc, char* args[])
 {
-	Application Life;
-
-	Life.start(800, 600);
+	Application Life(800, 600, NULL, NULL);
 
 	SDL_Delay(2000);
 
