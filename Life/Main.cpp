@@ -1,14 +1,18 @@
-#include <SDL.h>
-#include <cstdio>
-#include "Resources.h"
+#include "Application.h"
+
+#include <iostream>
 
 int main(int argc, char* args[])
 {
-	Application Life(800, 600, NULL, NULL);
-
-	SDL_Delay(2000);
-
-	SDL_Quit();
+    try
+    {
+        Application application;
+        application.execute();
+    }
+    catch (const std::runtime_error& error)
+    {
+        std::cerr << error.what() << std::endl;
+    }
 
 	return 0;
 }
