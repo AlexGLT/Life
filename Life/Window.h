@@ -7,7 +7,7 @@ class Window
     SDL_Window* handle;
 
 public:
-    Window(const char* title, int x, int y, int width, int height, Uint32 flags = 0) :
+    Window(const char* title, int width, int height, int x = SDL_WINDOWPOS_UNDEFINED, int y = SDL_WINDOWPOS_UNDEFINED, Uint32 flags = 0) :
         handle{::SDL_CreateWindow(title, x, y, width, height, flags)} // equals to handle = ::SDL_CreateWindow(...) in the constructor's body {...}
     {
         if (!handle) // if handle == null
