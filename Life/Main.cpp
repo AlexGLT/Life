@@ -11,7 +11,7 @@ int main(int argc, char* args[])
     }
     catch (const std::runtime_error& error)
     {
-        std::cerr << error.what() << std::endl;
+        std::cerr << error.what() << '\n';
     }
 
 	return 0;
