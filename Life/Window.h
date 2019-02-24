@@ -1,4 +1,4 @@
-#include <SDL_video.h> // SDL_Window
+#include <SDL2/SDL_video.h> // SDL_Window
 
 #include <stdexcept> // std::runtime_error
 

@@ -1,4 +1,4 @@
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include <stdexcept> // std::runtimer_error
 #include <memory> // std::unique_ptr
