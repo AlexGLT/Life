@@ -7,6 +7,7 @@ Game::Game() :
 {
 }
 
+
 Game::~Game() = default;
 
 void Game::process_event(const SDL_Event& event)
