@@ -7,7 +7,6 @@ Game::Game() :
 {
 }
 
-
 Game::~Game() = default;
 
 void Game::process_event(const SDL_Event& event)
@@ -55,7 +54,7 @@ void Game::update()
     if (pause) return;
 
     static int counter = 0;
-    if (counter++ >= 2) game_plane->update(), counter = 0;
+    if (counter++ >= 5) game_plane->update(), counter = 0;
 }
 
 void Game::render(const Renderer& renderer)

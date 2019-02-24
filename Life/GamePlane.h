@@ -35,18 +35,18 @@ public:
 			{
 				for (int X = -1; X < 2; X++)
 				{
-					if ((x + X) >= count || (y + Y) >= count || (x + X) < 0 || (y + Y) < 0 || ((X == 0) && (Y == 0)))
+					if ((x + X) >= count || (y + Y) >= count || (x + X) < 0 || (y + Y) < 0)
 					{
 						continue;
 					}
-					if (cells[((y + Y) * count) + (x + X)] == 1)
+					if (temp[((y + Y) * count) + (x + X)] == 1)
 					{
 						neighbours++;
 					}
 				}
 			}
 
-			if (cells[pos] == 0)
+			if (temp[pos] == 0)
 			{
 				if (neighbours == 3)
 				{
@@ -55,7 +55,11 @@ public:
 			}
 			else
 			{
-				if (neighbours != 2 && neighbours != 3)
+				if ((neighbours == 2) || neighbours == 3)
+				{
+					continue;
+				}
+				else
 				{
 					temp[pos] = 0;
 				}
