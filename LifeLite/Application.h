@@ -17,8 +17,7 @@ class Application
     {
         SDL()
         {
-           if (::SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0) // Якщо SDL_Init повертає значення < 0, то помилка виконання.
-                throw std::runtime_error{::SDL_GetError()}; // Конструктор std::runtime_error приймає рядок символів - помилку.
+           SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
         }
         ~SDL() // Прибираємо після себе.
 		{
