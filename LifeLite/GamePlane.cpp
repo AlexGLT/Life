@@ -56,12 +56,12 @@ void GamePlane::update()
     cells = std::move(temp); // Переносимо всі зміни з масиву temp в масив cells
 }
 
-void GamePlane::render(const Renderer& renderer, int x, int y, int cell_size) const
+void GamePlane::render(Renderer& renderer, int x, int y, int cell_size)
 {
     for (int k = 0; k < count * count; ++k)
     {
-        const int i = k / count;
-        const int j = k % count;
+        int i = k / count;
+        int j = k % count;
 
         renderer.set_color(255, 255, 255);
         if (cells[j + i * count])

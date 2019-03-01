@@ -17,10 +17,13 @@ class Application
     {
         SDL()
         {
-            if (::SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0) // Якщо SDL_Init повертає значення < 0, то помилка виконання.
+           if (::SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0) // Якщо SDL_Init повертає значення < 0, то помилка виконання.
                 throw std::runtime_error{::SDL_GetError()}; // Конструктор std::runtime_error приймає рядок символів - помилку.
         }
-        ~SDL() {::SDL_Quit();} // Прибираємо після себе.
+        ~SDL() // Прибираємо після себе.
+		{
+			::SDL_Quit();
+		}
     } sdl; // sdl - член класу Application. Об'єкт створений для того, щоб полегшити життя:
            // бібліотека SDL2 ініціалізується та знищується разом з об'єктом Application.
 
