@@ -1,7 +1,6 @@
 #include "Game.h"
-
+#include "Buttom.h"
 #include "GamePlane.h"
-
 Game::Game()
 {
 	game_plane = std::make_unique<GamePlane>(64);
@@ -92,5 +91,10 @@ void Game::update()
 
 void Game::render(Renderer& renderer)
 {
+	static Buttom b;
+	b.setpos(10, 10);
+	b.setsize(20, 40);
+	b.setcolor(0, 255, 0);
+	b.draft(renderer);
     game_plane->render(renderer, plane.x, plane.y, plane.cell_size);
 }
