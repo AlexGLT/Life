@@ -71,7 +71,7 @@ void GamePlane::render(Renderer& renderer, int x, int y, int cell_size)
 			}
 			else
 			{
-				cells[j + i * count].Cell::setColor(255, 255, 255);
+				cells[j + i * count].Cell::setColor(r, g, b);
 				renderer.set_color(std::get<0>(cells[j + i * count].getColor()), std::get<1>(cells[j + i * count].getColor()), std::get<2>(cells[j + i * count].getColor()));
 			}
 			renderer.fill_rect(x + j * cell_size, y + i * cell_size, cell_size, cell_size);
@@ -83,4 +83,11 @@ void GamePlane::render(Renderer& renderer, int x, int y, int cell_size)
     }
     renderer.draw_rect(x, y, count * cell_size + 1, count * cell_size + 1);
     renderer.set_color(0, 0, 0);
+}
+
+void GamePlane::changeColor()
+{
+	r = rand() % 256;
+	g = rand() % 256;
+	b = rand() % 256;
 }

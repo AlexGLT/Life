@@ -73,6 +73,10 @@ void Game::process_event(SDL_Event& event)
 					pattern.killCells(game_plane->getCells(), 64);
 					pattern.setCells(game_plane->getCells());
 				}
+				if (event.button.x >= 1049 && event.button.y >= 487 && event.button.x < 1100 && event.button.y < 538)
+				{
+					game_plane->changeColor();
+				}
             }
             break;
         }
@@ -98,14 +102,19 @@ void Game::render(Renderer& renderer)
 {
 	static Buttom advanced;
 	static Buttom pattern;
+	static Buttom color;
 	advanced.setpos(1049, 25);
 	advanced.setsize(50, 50);
 	advanced.setcolor(0, 255, 0);
 	pattern.setpos(1049, 924);
 	pattern.setsize(50, 50);
 	pattern.setcolor(0, 0, 255);
+	color.setcolor(255, 0, 0);
+	color.setpos(1049, 487);
+	color.setsize(50, 50);
 
 	advanced.draft(renderer);
 	pattern.draft(renderer);
+	color.draft(renderer);
     game_plane->render(renderer, plane.x, plane.y, plane.cell_size);
 }

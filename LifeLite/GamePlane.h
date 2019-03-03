@@ -10,6 +10,9 @@ class GamePlane
 	int count;
 	std::unique_ptr<ColorCell[]> cells;
 	bool advanceMode = false;
+	int r = 255;
+	int g = 255;
+	int b = 255;
 
 public:
 	GamePlane(int count)
@@ -21,7 +24,7 @@ public:
 
 	void update();
     void render(Renderer& renderer, int x, int y, int cell_size);
-
+	void changeColor();
 	bool flipBool()
 	{
 		return advanceMode = !advanceMode;
