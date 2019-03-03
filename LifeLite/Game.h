@@ -14,6 +14,7 @@ class Game
     } plane;
 
     bool pause = true;
+	bool advance = false;
 
 public:
     Game();

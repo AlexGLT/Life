@@ -3,7 +3,7 @@
 #include "Cell.h"
 #include "Prebuilt.h"
 
-std::unique_ptr<Cell[]> setInfinite(std::unique_ptr<Cell[]> infinite)
+void setInfinite(std::unique_ptr<ColorCell[]> &infinite)
 {
 	infinite[24 * 64 + 35].setLife(1);
 	infinite[25 * 64 + 35].setLife(1);
@@ -68,7 +68,7 @@ std::unique_ptr<Cell[]> setInfinite(std::unique_ptr<Cell[]> infinite)
 	infinite[30 * 64 + 61].setLife(1);
 	infinite[30 * 64 + 60].setLife(1);
 }
-std::unique_ptr<Cell[]> setBird(std::unique_ptr<Cell[]> bird)
+void setBird(std::unique_ptr<ColorCell[]> &bird)
 {
 	bird[25 * 64 + 13].setLife(1);
 	bird[25 * 64 + 14].setLife(1);

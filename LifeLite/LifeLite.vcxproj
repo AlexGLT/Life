@@ -138,6 +138,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Buttom.h" />
     <ClInclude Include="Cell.h" />
+    <ClInclude Include="ColorCell.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GamePlane.h" />
     <ClInclude Include="Patterns.h" />

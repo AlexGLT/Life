@@ -1,16 +1,15 @@
 #pragma once
+#include "Patterns.h"
 #include <memory>
 #include "Cell.h"
 
 class Prebuilt
 {
-	std::unique_ptr<Cell[]> cells;
-
 public:
 	Prebuilt() = default;
 	~Prebuilt() = default;
 
-	std::unique_ptr<Cell[]> killCells(std::unique_ptr<Cell[]>, int count)
+	void killCells(std::unique_ptr<ColorCell[]> &cells, int count)
 	{
 		for (int pos = 0; pos < count*count; pos++)
 		{
@@ -21,11 +20,16 @@ public:
 		}
 	}
 
-	std::unique_ptr<Cell[]> setCells(std::unique_ptr<Cell[]> pattern, int count)
+	void setCells(std::unique_ptr<ColorCell[]> &cells)
 	{
-		for (int num = 0; num < count*count; num++)
+		switch (rand() % 2)
 		{
-			cells[num].setLife(pattern[num].getLife());
+		case 0:
+			setInfinite(cells);
+			break;
+		case 1:
+			setBird(cells);
+			break;
 		}
 	}
 };

@@ -4,7 +4,7 @@
 void GamePlane::update()
 {
     // Копіюємо масив з клітинками в інший масив.
-	std::unique_ptr<Cell[]> temp = std::make_unique<Cell[]>(count * count);
+	std::unique_ptr<ColorCell[]> temp = std::make_unique<ColorCell[]>(count * count);
     for (int i = 0; i < count * count; ++i) temp[i] = cells[i];
 
     // Виконуємо алгоритм на новоствореному масиві.
@@ -64,9 +64,16 @@ void GamePlane::render(Renderer& renderer, int x, int y, int cell_size)
 
 		if (cells[j + i * count].getLife() == 1)
 		{
-			cells[j + i * count].setColor(255, 255, 255);
-
-			renderer.set_color(std::get<0>(cells[j + i * count].getColor()), std::get<1>(cells[j + i * count].getColor()), std::get<2>(cells[j + i * count].getColor()));
+			if (advanceMode)
+			{
+				cells[j + i * count].setColor();
+				renderer.set_color(std::get<0>(cells[j + i * count].getColor()), std::get<1>(cells[j + i * count].getColor()), std::get<2>(cells[j + i * count].getColor()));
+			}
+			else
+			{
+				cells[j + i * count].Cell::setColor(255, 255, 255);
+				renderer.set_color(std::get<0>(cells[j + i * count].getColor()), std::get<1>(cells[j + i * count].getColor()), std::get<2>(cells[j + i * count].getColor()));
+			}
 			renderer.fill_rect(x + j * cell_size, y + i * cell_size, cell_size, cell_size);
 		}
 

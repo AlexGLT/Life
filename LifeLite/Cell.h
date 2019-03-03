@@ -2,6 +2,7 @@
 #include <tuple>
 class Cell
 {
+protected:
 	bool life = false;
 	int r = 0, g = 0, b = 0;
 public:
