@@ -5,12 +5,12 @@
 #include "Renderer.h"
 #include "Game.h"
 
-Application::Application() :
-    // std::make_unique - метод, який повертає об'єкт std::unique_ptr
-    window  {std::make_unique<Window>("Game of Life", 1024, 1024)},
-    renderer{std::make_unique<Renderer>(*window)},
-    game    {std::make_unique<Game>()}
+Application::Application()
 {
+	// std::make_unique - метод, який повертає об'єкт std::unique_ptr
+	window = std::make_unique<Window>("Game of Life", 1024, 1024);
+	renderer = std::make_unique<Renderer>(*window);
+	game = std::make_unique<Game>();
 }
 
 // Явно визначаємо деструктор за замовчуванням.
